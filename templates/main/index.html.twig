@@ -1,0 +1,35 @@
+{% extends 'main.html.twig'  %}
+        {% block main %}
+         
+        <div class="breadcrumbs"> Каталог продукции ООО "МашСпецРеактив" </div>
+                <h4> МашСпецРеактив - Российский производитель гидравлического оборудования</h4>
+                <hr>
+        <div> <p>
+                        Компания «МашСпецРеактив» специализируется на проектировании и производстве гидроцилиндров, домкратов
+                        и различного гидравлического инструмента, такого как прессы, выпрессовщики, съемники, разгонщики и
+                        выравниватели фланцев и др.
+                </p>
+                <hr>
+                {% for parent in parent_category %}
+                        <a href="{{ path('parent-category', {'id': parent.id}) }}" class="parent-category"> {{ parent.name }}</a>
+                {% endfor %}
+                <hr>
+                <div class="row">
+                        <div class="col-lg-12">
+        {% for categories in category %}
+        <a href="{{ path('category', {'id': categories.id}) }}">
+                <div class="category-card">
+                                        <img src="..." class="img-fluid rounded-start" alt="...">
+
+                                                <h3 class="title">{{ categories.name }} </h3>
+                                                <div class="text">{{ categories.shortDescription }}</div>
+                </div>
+        </a>
+        {% endfor %}
+                        </div>
+                </div>
+               <div class="navigation"> 
+                        {{ knp_pagination_render(category) }}
+                </div>
+        </div>
+        {% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'main_crud_template.html.twig'  %}
+
+{% block body %}
+    <h1>ItemCategory index</h1>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>ParentId</th>
+                <th>Sort</th>
+                <th>Switch</th>
+                <th>Name</th>
+                <th>Url</th>
+                <th>Icon</th>
+                <th>ShortDescription</th>
+                <th>Description</th>
+                <th>Params</th>
+                <th>BottomText</th>
+                <th>SeoTitle</th>
+                <th>SeoDescription</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for item_category in item_categories %}
+            <tr>
+                <td>{{ item_category.id }}</td>
+                <td>{{ item_category.parentId }}</td>
+                <td>{{ item_category.sort }}</td>
+                <td>{{ item_category.switch }}</td>
+                <td>{{ item_category.name }}</td>
+                <td>{{ item_category.url }}</td>
+                <td>{{ item_category.icon }}</td>
+                <td>{{ item_category.shortDescription }}</td>
+                <td>{{ item_category.description }}</td>
+                <td>{{ item_category.params }}</td>
+                <td>{{ item_category.bottomText }}</td>
+                <td>{{ item_category.seoTitle }}</td>
+                <td>{{ item_category.seoDescription }}</td>
+                <td>
+                    <a href="{{ path('app_item_category_show', {'id': item_category.id}) }}">show</a>
+                    <a href="{{ path('app_item_category_edit', {'id': item_category.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="14">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_item_category_new') }}">Create new</a>
+{% endblock %}

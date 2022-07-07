@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<title>Item index</title>
+
+{% block body %}
+    <h1>Item index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>ItemCategoryId</th>
+                <th>Sort</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Params</th>
+                <th>Price</th>
+                <th>SeoTitle</th>
+                <th>SeoDescriptions</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.itemCategoryId }}</td>
+                <td>{{ item.sort }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.description }}</td>
+                <td>{{ item.params }}</td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.seoTitle }}</td>
+                <td>{{ item.seoDescriptions }}</td>
+                <td>
+                    <a href="{{ path('app_item_show', {'id': item.id}) }}">show</a>
+                    <a href="{{ path('app_item_edit', {'id': item.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_item_new') }}">Create new</a>
+{% endblock %}

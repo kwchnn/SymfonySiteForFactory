@@ -1,0 +1,19 @@
+{% extends 'main.html.twig'  %}
+    {% block main %}
+    <div class="breadcrumbs"> {{ wo_render_breadcrumbs() }} </div>
+    <h2> Контакты </h2>
+    <hr>
+     <div class="row">
+            <div class="col-lg-4">
+                    {{ form_start(form) }}
+                        {{ form_widget(form) }}
+                         <button type="submit" class="button">Отправить</button>
+                    {{ form_end(form) }}
+            </div>
+            <div class="col-lg-8">
+                <script type="text/javascript" charset="utf-8" async 
+                 src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa9a238a529f9ed28cd0443fb55f1227b5c8f39ec3aaccf13fbaa8e1e7bea6d4f&amp;width=700&amp;height=450&amp;lang=ru_RU&amp;scroll=true">
+                </script>
+            </div>
+        </div>
+        {% endblock %}

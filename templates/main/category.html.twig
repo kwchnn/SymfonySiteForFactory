@@ -1,0 +1,49 @@
+
+{% extends 'main.html.twig'  %}
+{% block head %}
+<head>
+    <meta description="{{ product_category.seoDescription }}">
+</head>
+ {% endblock %}
+    {% block main %}
+        <div class="breadcrumbs"> {{ wo_render_breadcrumbs() }} </div>
+            <h4>  {{ product_category.name }} </h4>
+        <hr>
+        <div class="row">
+            <div class="col-sm-7 text-14px">
+                {{ product_category.description }}
+            </div>
+            <div class="col-sm-5">
+            {% for products in product %}
+            {{ products.name }}
+            {% endfor %}
+            </div>
+        </div>
+        <hr>
+        <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Наименование</th>
+      <th scope="col">Параметры</th>
+      <th scope="col">Цена</th>
+    </tr>
+  </thead>
+  {% for items in item %}
+  <tbody>
+    <tr>
+      <th scope="row">{{ items.id }}</th>
+      <td>{{ items.name }}</td>
+      <td>{{ items.params }}</td>
+      <td>{{ items.price }}</td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+<div class="comments"> {% for comment in comments %} 
+        {{ comment.name }} <br>
+        {{ comment.text }}
+        <hr>
+      {% endfor %}
+</div>
+    {% endblock %}
