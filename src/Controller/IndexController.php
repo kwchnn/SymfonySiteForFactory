@@ -14,7 +14,7 @@ use App\FormBuilder\FormBuilderType;
 use App\BreadcrumbService\BreadcrumbService; //Самописный сервис получения хлебных крошек
 use Knp\Component\Pager\PaginatorInterface;
 
-class IndexController extends AbstractController
+class IndexController extends AbstractController //index controller
 {
     private $doctrine;
     private $breadcrumbs;
